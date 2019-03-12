@@ -1,0 +1,39 @@
+<html>
+Javascript Sample page. Enter in your app_key and any search criteria you want. <br>
+<script type="text/javascript" src="http://api.eventful.com/js/api">
+</script>
+<script type="text/javascript">
+
+function show_alert2()
+{
+   var app_key = "PW24gq77zLtqXLnT";
+   var where   = document.getElementById("where");
+   var query   = document.getElementById("query");
+   var oArgs = {
+      app_key: app_key,
+      q: query.value,
+      where: where.value,
+      "date": "2019031100-20190122000",
+      "include": "tags,categories",
+      page_size: 20,
+      sort_order: "popularity",
+   };
+   EVDB.API.call("/events/search", oArgs, function(oData) {
+    console.log(oData);
+      alert("your myObject is " + JSON.stringify(oData));
+    });
+}
+</script>
+
+<body>
+<form >
+  Where <input id="where"   type="text" name="where" value="cleveland"/> <br>
+  Query <input id="query"   type="text" name="query" value=""/> <br>
+</form>
+<input type="button" onclick="show_alert2()" value="Filtered query " /> <br>
+<br>
+<br>
+And here is the sample code:
+
+</body>
+</html>

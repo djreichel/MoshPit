@@ -1,0 +1,39 @@
+<html>
+
+
+<body>
+<form >
+  Where <input id="where"   type="text" name="where" value="Cleveland"/> <br>
+  Query <input id="query"   type="text" name="query" value="Griz"/> <br>
+</form>
+<input type="button" onclick="show_alert2()" value="Filtered query " /> <br>
+<br>
+<br>
+And here is the sample code:
+
+</body>
+<script type="text/javascript" src="http://api.eventful.com/js/api">
+</script>
+<script type="text/javascript">
+
+function show_alert2()
+{
+   var app_key = "PW24gq77zLtqXLnT";
+   var where   = document.getElementById("where");
+   var query   = document.getElementById("query");
+   var oArgs = {
+      app_key: app_key,
+      q: query.value,
+      where: where.value,
+      "date": "2019061000-2019062000",
+      page_size: 20,
+      sort_order: "popularity",
+   };
+   EVDB.API.call("/events/search", oArgs, function(oData) {
+    console.log(oData);
+    console.log(JSON.stringify(oData));
+    alert("your myObject is " + JSON.stringify(oData));
+    });
+}
+</script>
+</html>
