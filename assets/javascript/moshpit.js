@@ -1,4 +1,4 @@
-function show_alert2()
+function evdbapi()
 {
    var app_key = "PW24gq77zLtqXLnT";
    var where   = document.getElementById("where");
