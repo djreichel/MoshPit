@@ -1,7 +1,7 @@
 <html>
 Javascript Sample page. Enter in your app_key and any search criteria you want. <br>
-<script type="text/javascript" src="http://api.eventful.com/js/api">
-</script>
+<script type="text/javascript" src="http://api.eventful.com/js/api"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 
 function show_alert2()
@@ -19,6 +19,14 @@ function show_alert2()
       sort_order: "popularity",
    };
    EVDB.API.call("/events/search", oArgs, function(oData) {
+    var topevent = oData.events.event[0];
+    var artistName = $("<h1>").text(topevent.title);
+    var artistImage = $("<img>").attr("src", topevent.image.medium.url);
+    var venue = $("<p>").text(topevent.venue_name);
+
+      // Empty the contents of the artist-div, append the new artist content
+      $("#artist-div").empty();
+      $("#artist-div").append(artistImage, artistName, venue);
     console.log(oData);
       alert("your myObject is " + JSON.stringify(oData));
     });
@@ -28,12 +36,13 @@ function show_alert2()
 <body>
 <form >
   Where <input id="where"   type="text" name="where" value="cleveland"/> <br>
-  Query <input id="query"   type="text" name="query" value=""/> <br>
+  Query <input id="query"   type="text" name="query" value="kiss"/> <br>
 </form>
 <input type="button" onclick="show_alert2()" value="Filtered query " /> <br>
 <br>
 <br>
 And here is the sample code:
+<div id="artist-div"></div>
 
 </body>
 </html>
