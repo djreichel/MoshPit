@@ -1,5 +1,6 @@
 var inputArtist;
 var where;
+var blank = "";
 function evdbapi()
 {
    var app_key = "PW24gq77zLtqXLnT";
@@ -18,10 +19,11 @@ function evdbapi()
     var artistImage = $("<img>").attr("src", topevent.image.medium.url);
     var venue = $("<p>").text(topevent.venue_name);
     var vlocal = $("<p>").text(topevent.city_name + " ," + topevent.region_name + " ," + topevent.country_name);
+    var date = $("<p>").text(topevent.start_time);
 
       // Empty the contents of the artist-div, append the new artist content
       $("#bandinfo").empty();
-      $("#bandinfo").append(artistImage, artistName, vlocal, venue);
+      $("#bandinfo").append(artistImage, artistName, vlocal, venue, date);
     console.log(oData);
     });
 }
@@ -58,8 +60,13 @@ function evdbapi()
     // Storing the artist name
     inputArtist = $("#artist-input").val().trim();
     where   = $("#where").val().trim();
-
+    debugger;
+    if ((inputArtist).localeCompare(blank)) {
+      evdbapi(where);
+    }
+    else {
     // Running the searchBandsInTown function(passing in the artist as an argument)
     searchBandsInTown(inputArtist);
     evdbapi(inputArtist, where)
+    }
   });
