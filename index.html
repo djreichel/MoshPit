@@ -1,20 +1,45 @@
 <!DOCTYPE html>
-    <html>
-        
-    <head>
-        <meta charset="UTF-">
-        <meta http-equiv="X-UA-Commpatiable" content="IE=edge">
-        <title>Mosh Pit</title>
-        <link rel="stylesheet" type="text/css" href="assets/reset.css">
-        <link rel="stylesheet" type="text/css" href="assets/style.css">
+<html>
 
-        <body>
+<head>
+    <meta charset="UTF-">
+    <meta http-equiv="X-UA-Compatible-8" content="IE=edge">
+    <title>Mosh Pit</title>
+    <link rel="stylesheet" type="text/css" href="assets/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+
+<body>
+
+    <!-- Artist Select Box -->
+    <form id="artist-form">
+
+        <!-- Label for Text Box -->
+        <label for="artist-input">Choose Your Artist</label>
+
+        <!-- Text Input Box -->
+        <input type="text" id="artist-input"><br>
+
+        <!-- Submit Button -->
+        <input id="select-artist" type="submit" value="GO!">
+    </form>
+
+    <!-- Artist Information -->
+    <div id="artist-div"></div>
+    <form>
+        Where <input id="where" type="text" name="where" value="cleveland" /> <br>
+        Query <input id="query" type="text" name="query" value="kiss" /> <br>
+    </form>
+    <input type="button" onclick="evdbapi()" value="Filtered query " /> <br>
+    <br>
+    <br>
+    And here is the sample code:
+    <div id="bandinfo"></div>
 
 
 
-        </body>
+</body>
 
-        
-    </head>
-    
-    </html>
+
+</head>
+
+</html>
