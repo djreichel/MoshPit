@@ -1,7 +1,6 @@
-.ui.fluid.image { 
-    background: url(assets/images/background.jpg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+ .ui.grid.container { 
+   background: url("../assets/images/background.jpg");
+   background-size: cover;
+   height: 100%;
+   z-index: 1;
   }
