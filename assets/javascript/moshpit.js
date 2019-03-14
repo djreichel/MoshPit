@@ -1,12 +1,12 @@
+var inputArtist;
+var where;
 function evdbapi()
 {
    var app_key = "PW24gq77zLtqXLnT";
-   var where   = document.getElementById("where");
-   var query   = document.getElementById("query");
    var oArgs = {
       app_key: app_key,
-      q: query.value,
-      where: where.value,
+      q: inputArtist,
+      where: where,
       "date": "2019031100-20190122000",
       "include": "tags,categories",
       page_size: 20,
@@ -56,8 +56,10 @@ function evdbapi()
     // Preventing the button from trying to submit the form
     event.preventDefault();
     // Storing the artist name
-    var inputArtist = $("#artist-input").val().trim();
+    inputArtist = $("#artist-input").val().trim();
+    where   = $("#where").val().trim();
 
     // Running the searchBandsInTown function(passing in the artist as an argument)
     searchBandsInTown(inputArtist);
+    evdbapi(inputArtist, where)
   });
