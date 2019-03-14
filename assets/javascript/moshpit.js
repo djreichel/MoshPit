@@ -1,22 +1,28 @@
 var inputArtist;
 var where;
 var blank = "";
-function evdbapi()
+function evdbapi(artist, loc)
 {
+  console.log("evdbapi called, artist="+artist+", loc = "+loc);
    var app_key = "PW24gq77zLtqXLnT";
    var oArgs = {
       app_key: app_key,
-      q: inputArtist,
-      where: where,
-      "date": "2019031100-20190122000",
+      q: artist,
+      where: loc,
+      "date": "2019031100-2019122500",
       "include": "tags,categories",
       page_size: 20,
       sort_order: "popularity",
    };
    EVDB.API.call("/events/search", oArgs, function(oData) {
     var topevent = oData.events.event[0];
+    console.log(topevent);
     var artistName = $("<h1>").text(topevent.title);
-    var artistImage = $("<img>").attr("src", topevent.image.medium.url);
+    if (topevent.image == null){ 
+    var artistImage = $("<p>").text("no image avaliable");
+    } else {
+      var artistImage = $("<img>").attr("src", topevent.image.medium.url);
+    }
     var venue = $("<p>").text(topevent.venue_name);
     var vlocal = $("<p>").text(topevent.city_name + " ," + topevent.region_name + " ," + topevent.country_name);
     var date = $("<p>").text(topevent.start_time);
@@ -28,6 +34,9 @@ function evdbapi()
     });
 }
   function searchBandsInTown(artist) {
+    if(artist == "") { console.log("no artist")
+      return false;
+    }
 
     // Querying the bandsintown api for the selected artist, the ?app_id parameter is required, but can equal anything
     var queryURL = "https://rest.bandsintown.com/artists/" + artist + "?app_id=codingbootcamp";
@@ -60,13 +69,7 @@ function evdbapi()
     // Storing the artist name
     inputArtist = $("#artist-input").val().trim();
     where   = $("#where").val().trim();
-    debugger;
-    if ((inputArtist).localeCompare(blank)) {
-      evdbapi(where);
-    }
-    else {
     // Running the searchBandsInTown function(passing in the artist as an argument)
     searchBandsInTown(inputArtist);
     evdbapi(inputArtist, where)
-    }
   });
