@@ -1,4 +1,7 @@
-body {
-    background-image: url("background.jpg");
-    z-index: 1;
-}
+.ui.fluid.image { 
+    background: url(assets/images/background.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
