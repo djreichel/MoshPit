@@ -1,6 +1,12 @@
 var inputArtist;
 var where;
 var blank = "";
+var logo = $("#logo")
+var randomDate = moment();
+    var randomFormat = "YYYY/MM/DD";
+    var convertedDate = moment(randomDate, randomFormat);
+    console.log(convertedDate);
+
 function evdbapi(artist, loc)
 {
   console.log("evdbapi called, artist="+artist+", loc = "+loc);
@@ -9,7 +15,7 @@ function evdbapi(artist, loc)
       app_key: app_key,
       q: artist,
       where: loc,
-      "date": "2019031100-2019122500",
+      "date": "future",
       "include": "tags,categories",
       page_size: 20,
       sort_order: "popularity",
@@ -29,7 +35,7 @@ function evdbapi(artist, loc)
 
       // Empty the contents of the artist-div, append the new artist content
       $("#bandinfo").empty();
-      $("#bandinfo").append(artistImage, artistName, vlocal, venue, date);
+      $("#artist-div").append(vlocal, venue, date);
     console.log(oData);
     });
 }
@@ -49,16 +55,14 @@ function evdbapi(artist, loc)
       console.log(response);
 
       // Constructing HTML containing the artist information
-      var artistName = $("<h1>").text(response.name);
+      var artistName = $("<h1 class='card-title'>").text(response.name);
       var artistURL = $("<a>").attr("href", response.url).append(artistName);
-      var artistImage = $("<img>").attr("src", response.thumb_url);
-      var trackerCount = $("<h2>").text(response.tracker_count + " fans tracking this artist");
-      var upcomingEvents = $("<h2>").text(response.upcoming_event_count + " upcoming events");
+      var artistImage = $("<img class='card-img-top'>").attr("src", response.thumb_url);
       var goToArtist = $("<a>").attr("href", response.url).text("See Tour Dates");
 
       // Empty the contents of the artist-div, append the new artist content
       $("#artist-div").empty();
-      $("#artist-div").append(artistURL, artistImage, trackerCount, upcomingEvents, goToArtist);
+      $("#artist-div").append(artistURL, artistImage, goToArtist);
     });
   }
 
@@ -66,10 +70,11 @@ function evdbapi(artist, loc)
   $("#select-artist").on("click", function(event) {
     // Preventing the button from trying to submit the form
     event.preventDefault();
+    logo.animate({height: "150px"});
     // Storing the artist name
     inputArtist = $("#artist-input").val().trim();
     where   = $("#where").val().trim();
     // Running the searchBandsInTown function(passing in the artist as an argument)
+    evdbapi(inputArtist, where);
     searchBandsInTown(inputArtist);
-    evdbapi(inputArtist, where)
   });

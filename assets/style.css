@@ -1,0 +1,28 @@
+body            {
+    background: url(./images/MoshPit_pic_960x600.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#artist-div {
+    background-color: darkgray;
+    border-radius: 25px;
+    width: 18rem;
+    text-align: center;
+}
+.row {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+#inputbar {
+    color: white;
+}
+h1 {
+    font-size: 1rem;
+}
+.put {
+    border-radius: 25px;
+    margin: 25px;
+}

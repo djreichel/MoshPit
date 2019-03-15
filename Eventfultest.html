@@ -2,35 +2,45 @@
 <html lang="en">
 
 <head>
+  <link rel="icon" href="favicon.ico" type="/favicon.ico"/>
   <meta charset="utf-8">
-  <title>Bands In Town</title>
+  <title>MOSH PIT</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="assets/style.css">
 </head>
 
 <body>
-
+<div class="row">
+  <div class="col-md-3" id="inputbar">
+      <h1>FIND ANY CONCERT ANYWHERE</h1>
   <!-- Artist Select Box -->
   <form id="artist-form">
 
-    <!-- Label for Text Box -->
-    <label for="artist-input">Choose Your Artist</label>
-
     <!-- Text Input Box -->
-    <input type="text" id="artist-input"><br>
-    Where <input id="where"   type="text" name="where" value="cleveland"/><br>
+    <input class="put" type="text" id="artist-input"><br>
+    <input class="put" type="text" id="where" name="where" value="cleveland"/><br>
 
     <!-- Submit Button -->
     <input id="select-artist" type="submit" value="GO!">
   </form>
+</div>
+<div class="col-lg-8">
+  <img id="logo" src="assets/images/logo.png" alt="logo">
 
   <!-- Artist Information -->
-  <div id="artist-div"></div>
+  <div class="card" id="artist-div">
+
+  </div>
 
     <div id="bandinfo"></div>
+  </div>
+  </div>
 
 </body>
-
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="http://api.eventful.com/js/api"></script>
 <script src="assets/javascript/moshpit.js"></script>
+
 
 </html>
