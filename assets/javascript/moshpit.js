@@ -1,5 +1,6 @@
 var inputArtist;
 var where;
+
 function evdbapi()
 {
    var app_key = "PW24gq77zLtqXLnT";
@@ -50,7 +51,6 @@ function evdbapi()
       $("#artist-div").append(artistURL, artistImage, trackerCount, upcomingEvents, goToArtist);
     });
   }
-
   // Event handler for user clicking the select-artist button
   $("#select-artist").on("click", function(event) {
     // Preventing the button from trying to submit the form
@@ -63,3 +63,4 @@ function evdbapi()
     searchBandsInTown(inputArtist);
     evdbapi(inputArtist, where)
   });
+  
