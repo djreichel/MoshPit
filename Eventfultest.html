@@ -13,18 +13,35 @@
 <div class="row">
   <div class="col-md-3" id="inputbar">
       <h1>FIND ANY CONCERT ANYWHERE</h1>
+      <div class="row" id="dembutts">
+      <button class="btn btn-primary" id="artist">Artist</button>
+      <button class="btn btn-primary" id="city">City</button>
+      <button class="btn btn-primary" id="ven">Venue</button>
+    </div>
   <!-- Artist Select Box -->
   <form id="artist-form">
 
     <!-- Text Input Box -->
-    <input class="put" type="text" id="artist-input"><br>
-    <input class="put" type="text" id="where" name="where" value="cleveland"/><br>
+    <label for="artist-input">CHOOSE AN ARTIST</label>
+    <input class="put" type="text" id="artist-input" value="Drake"><br>
 
     <!-- Submit Button -->
     <input id="select-artist" type="submit" value="GO!">
   </form>
+
+
+  <form id="where-form">
+
+      <!-- Text Input Box -->
+      <label for="where">CHOOSE A CITY</label>
+      <input class="put" type="text" id="keyword" value="Genre"><br>
+      <input class="put" type="text" id="where" name="where" value="Cleveland"><br>
+  
+      <!-- Submit Button -->
+      <input id="select-location" type="submit" value="GO!">
+    </form>
 </div>
-<div class="col-lg-8">
+<div class="col-lg-8" id="cardplace">
   <img id="logo" src="assets/images/logo.png" alt="logo">
 
   <!-- Artist Information -->
@@ -32,8 +49,6 @@
 
   </div>
 
-    <div id="bandinfo"></div>
-  </div>
   </div>
 
 </body>

@@ -6,14 +6,27 @@ body            {
     background-size: cover;
 }
 #artist-div {
+    float: right;
     background-color: darkgray;
     border-radius: 25px;
-    width: 18rem;
+    width: 28rem;
     text-align: center;
 }
+#bio {
+    position: fixed;
+    right: 0;
+    width: 25px;
+}
+#artist-form {
+    visibility: hidden;
+}
+.btn {
+    margin: 20px;
+    width: 100px;
+}
 .row {
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
     margin-top: 50px;
 }
 #inputbar {
@@ -25,4 +38,10 @@ h1 {
 .put {
     border-radius: 25px;
     margin: 25px;
+}
+#where-form {
+    visibility: hidden;
+}
+#where {
+    visibility: hidden;
 }

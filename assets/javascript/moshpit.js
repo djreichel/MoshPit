@@ -1,80 +1,136 @@
 var inputArtist;
 var where;
 var blank = "";
-var logo = $("#logo")
-var randomDate = moment();
-    var randomFormat = "YYYY/MM/DD";
-    var convertedDate = moment(randomDate, randomFormat);
-    console.log(convertedDate);
+var logo = $("#logo");
+var key = "fb84c3a57177226f589349b05b02b444";
 
-function evdbapi(artist, loc)
-{
-  console.log("evdbapi called, artist="+artist+", loc = "+loc);
-   var app_key = "PW24gq77zLtqXLnT";
-   var oArgs = {
-      app_key: app_key,
-      q: artist,
-      where: loc,
-      "date": "future",
-      "include": "tags,categories",
-      page_size: 20,
-      sort_order: "popularity",
-   };
-   EVDB.API.call("/events/search", oArgs, function(oData) {
-    var topevent = oData.events.event[0];
-    console.log(topevent);
-    var artistName = $("<h1>").text(topevent.title);
-    if (topevent.image == null){ 
+
+function lastfm(artist) {
+
+  var key = "fb84c3a57177226f589349b05b02b444";
+  var queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artist + "&api_key=" + key + "&format=json";
+  
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+    
+  }).then(function (response) {
+    console.log("music brainz:" + response.artist.mbid);
+    var artid = response.artist.mbid;
+    var queryURLtwo = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&mbid=" + artid + "&api_key=" + key + "&format=json";
+    $.ajax({
+      url: queryURLtwo,
+      method: "GET"
+    }).then(function (response) {
+      console.log("potential bio:"+response.artist.bio.summary);
+      var bio = response.artist.bio.summary;
+      var end = bio.indexOf("<");
+      console.log(end);
+      //bio.substring(0, end);
+      var biop = $("<p>").text(bio.substring(0, end));
+      $("#artist-div").append(biop);
+    })
+
+  })
+};
+
+function evdbapi(artist, loc) {
+  console.log("evdbapi called, artist=" + artist + ", loc = " + loc);
+  var app_key = "PW24gq77zLtqXLnT";
+  var oArgs = {
+    app_key: app_key,
+    q: artist,
+    where: loc,
+    "date": "Next week",
+    "include": "tags,categories",
+    page_size: 20,
+    sort_order: "popularity",
+  };
+  EVDB.API.call("/events/search", oArgs, function (oData) {
+    console.log(oData.events);
+    var allevents = oData.events.event;
+    console.log(allevents);
+    debugger;
+    for (i=0; i < allevents.length; i++) {
+      debugger;
+
+    console.log(allevents[i]);
+    var eventcard = $("<div class='card'>")
+    var artistName = $("<h1 class='card-title'>").text(allevents[i].title);
+    if (allevents[i].image == null){ 
     var artistImage = $("<p>").text("no image avaliable");
     } else {
-      var artistImage = $("<img>").attr("src", topevent.image.medium.url);
+      var artistImage = $("<img class='card-img-top'>").attr("src", allevents[i].image.medium.url);
     }
-    var venue = $("<p>").text(topevent.venue_name);
-    var vlocal = $("<p>").text(topevent.city_name + " ," + topevent.region_name + " ," + topevent.country_name);
-    var date = $("<p>").text(topevent.start_time);
-
-      // Empty the contents of the artist-div, append the new artist content
-      $("#bandinfo").empty();
-      $("#artist-div").append(vlocal, venue, date);
-    console.log(oData);
-    });
+    var venue = $("<p>").text(allevents[i].venue_name);
+    var vlocal = $("<p>").text(allevents[i].city_name + " ," + allevents[i].region_name + " ," + allevents[i].country_name);
+    var date = $("<p>").text(allevents[i].start_time);
+    $(eventcard).append(artistName, artistImage, vlocal, venue, date);
+  }
+  });
 }
-  function searchBandsInTown(artist) {
-    if(artist == "") { console.log("no artist")
-      return false;
-    }
-
-    // Querying the bandsintown api for the selected artist, the ?app_id parameter is required, but can equal anything
-    var queryURL = "https://rest.bandsintown.com/artists/" + artist + "?app_id=codingbootcamp";
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function(response) {
-
-      // Printing the entire object to console
-      console.log(response);
-
-      // Constructing HTML containing the artist information
-      var artistName = $("<h1 class='card-title'>").text(response.name);
-      var artistURL = $("<a>").attr("href", response.url).append(artistName);
-      var artistImage = $("<img class='card-img-top'>").attr("src", response.thumb_url);
-      var goToArtist = $("<a>").attr("href", response.url).text("See Tour Dates");
-
-      // Empty the contents of the artist-div, append the new artist content
-      $("#artist-div").empty();
-      $("#artist-div").append(artistURL, artistImage, goToArtist);
-    });
+function searchBandsInTown(artist) {
+  if (artist == "") {
+    console.log("no artist")
+    return false;
   }
 
-  // Event handler for user clicking the select-artist button
-  $("#select-artist").on("click", function(event) {
+  // Querying the bandsintown api for the selected artist, the ?app_id parameter is required, but can equal anything
+  var queryURL = "https://rest.bandsintown.com/artists/" + artist + "?app_id=codingbootcamp";
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function (response) {
+
+    // Printing the entire object to console
+    console.log(response);
+
+    // Constructing HTML containing the artist information
+    var artistName = $("<h1 class='card-title'>").text(response.name);
+    var artistURL = $("<a>").attr("href", response.url).append(artistName);
+    var artistImage = $("<img class='card-img-top'>").attr("src", response.thumb_url);
+    var goToArtist = $("<a>").attr("href", response.url).text("See Tour Dates");
+
+    // Empty the contents of the artist-div, append the new artist content
+    $("#artist-div").empty();
+    $("#artist-div").append(artistURL, artistImage, goToArtist);
+  });
+}
+$(document).ready(function () {
+  $("#artist").on("click", function () {
+    $("#dembutts").empty();
+    $("#artist-form").css("visibility", "visible");
+    $("#artist-input").css("visibility", "visible");
+    
+  });
+  $("#city").on("click", function () {
+    $("#dembutts").empty();
+    $("#where-form").css("visibility", "visible");
+    $("#where").css("visibility", "visible");
+    
+  });
+  $("#select-location").on("click", function (event) {
     // Preventing the button from trying to submit the form
     event.preventDefault();
-    logo.animate({height: "150px"});
+    logo.animate({ height: "400px" });
+    // Storing the artist name
+    keyword = $("#keyword").val().trim();
+    where = $("#where").val().trim();
+    evdbapi(keyword, where);
+  });
+
+
+  // Event handler for user clicking the select-artist button
+  $("#select-artist").on("click", function (event) {
+    // Preventing the button from trying to submit the form
+    event.preventDefault();
+    logo.animate({ height: "400px" });
     // Storing the artist name
     inputArtist = $("#artist-input").val().trim();
-    where   = $("#where").val().trim();
+    where = $("#where").val().trim();
     // Running the searchBandsInTown function(passing in the artist as an argument)
-    evdbapi(inputArtist, where);
+    lastfm(inputArtist);
+    // evdbapi(inputArtist, where);
     searchBandsInTown(inputArtist);
   });
+});
