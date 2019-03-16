@@ -1,7 +1,16 @@
-.ui.fluid.image { 
-    background: url(assets/images/background.jpg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+
+body { 
+   background: url("../assets/images/background.jpg");
+   background-size: cover;
+   height: 100%;
+   z-index: 1;
+   position: inherit;
   }
+
+  .ui.container {
+     padding-left: -5.5%;
+     padding-top: 3%;
+  }
+ .ui.input.focus {
+      padding-bottom: 2%;
+   }
