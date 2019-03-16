@@ -5,3 +5,11 @@ body {
    z-index: 1;
    position: inherit;
   }
+
+  .ui.container {
+     padding-left: -5.5%;
+     padding-top: 3%;
+  }
+ .ui.input.focus {
+      padding-bottom: 2%;
+   }
