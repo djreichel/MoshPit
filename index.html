@@ -7,36 +7,36 @@
   <title>MOSHPIT</title>
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-  <link rel="stylesheet" type="text/css" href="assets/reset.css">
-  <link rel="stylesheet" type="text/css" href="assets/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 
 <body>
 
-<div class="ui container">
-  <div class="middle aligned column">
-    <div class="ui input focus">
-      <input type="text" placeholder="CITY">
+  <div class="ui container">
+    <div class="middle aligned column">
+      <div class="ui input focus">
+        <input type="text" id="where" placeholder="CITY">
+      </div>
+      <!--end of first ui input focus for city search-->
     </div>
-    <!--end of first ui input focus for city search-->
-  </div>
-  <!--end of first second middle aligned column -->
-  <div class="middle align column">
-    <div class="ui input focus">
-      <input type="text" placeholder="BAND">
+    <!--end of first second middle aligned column -->
+    <div class="middle align column">
+      <div class="ui input focus">
+        <input type="text" id="artist-input" placeholder="BAND">
+      </div>
+      <!--end of ui input focus for band search -->
     </div>
-    <!--end of ui input focus for band search -->
+    <!--end of second middle aligned column--> 
   </div>
-  <!--end of second middle aligned column-->
-</div>
-<!--end of ui container for forms-->
+  <!--end of ui container for forms-->
 
-  
+
   <div class="middle aligned column">
     <img class="ui centered large image" src="assets/images/moshpit2.png">
   </div>
-  <!--end of image middle aligned column--> 
+  <!--end of image middle aligned column-->
   <div class="ui vertical hidden divider">
     <!--anything here goes on right side-->
 
@@ -52,6 +52,9 @@
 
 
   <script href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://api.eventful.com/js/api"></script>
+  <script src="assets/javascript/moshpit.js"></script>
 </body>
 
 </html>
