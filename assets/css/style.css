@@ -4,6 +4,9 @@ body {
    height: 100%;
    z-index: 1;
    position: inherit;
+}
+.ui.input>input {
+   font-family: 'Permanent Marker', cursive;
   }
 
   .ui.container {
