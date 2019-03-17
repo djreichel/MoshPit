@@ -12,6 +12,15 @@ body            {
     width: 28rem;
     text-align: center;
 }
+
+.eventful {
+    width: 15rem;
+    float: right;
+    margin: 25px;
+    background-color: darkgrey;
+    border-radius: 25px;
+    text-align: center;
+}
 #bio {
     position: fixed;
     right: 0;

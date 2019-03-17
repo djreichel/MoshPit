@@ -16,14 +16,13 @@
       <div class="row" id="dembutts">
       <button class="btn btn-primary" id="artist">Artist</button>
       <button class="btn btn-primary" id="city">City</button>
-      <button class="btn btn-primary" id="ven">Venue</button>
     </div>
   <!-- Artist Select Box -->
   <form id="artist-form">
 
     <!-- Text Input Box -->
     <label for="artist-input">CHOOSE AN ARTIST</label>
-    <input class="put" type="text" id="artist-input" value="Drake"><br>
+    <input class="put" type="text" id="artist-input" required><br>
 
     <!-- Submit Button -->
     <input id="select-artist" type="submit" value="GO!">
@@ -34,21 +33,17 @@
 
       <!-- Text Input Box -->
       <label for="where">CHOOSE A CITY</label>
-      <input class="put" type="text" id="keyword" value="Genre"><br>
-      <input class="put" type="text" id="where" name="where" value="Cleveland"><br>
+      <input class="put" type="text" id="keyword" required><br>
+      <input class="put" type="text" id="where" name="where" required><br>
   
       <!-- Submit Button -->
       <input id="select-location" type="submit" value="GO!">
     </form>
 </div>
-<div class="col-lg-8" id="cardplace">
-  <img id="logo" src="assets/images/logo.png" alt="logo">
-
-  <!-- Artist Information -->
-  <div class="card" id="artist-div">
-
-  </div>
-
+<div class="col-sm-1">
+<img id="logo" src="assets/images/logo.png" alt="logo">
+</div>
+<div class="col-lg-7" id="cardplace">
   </div>
 
 </body>

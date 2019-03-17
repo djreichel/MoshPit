@@ -50,23 +50,25 @@ function evdbapi(artist, loc) {
     console.log(oData.events);
     var allevents = oData.events.event;
     console.log(allevents);
-    debugger;
-    for (i=0; i < allevents.length; i++) {
-      debugger;
-
-    console.log(allevents[i]);
-    var eventcard = $("<div class='card'>")
-    var artistName = $("<h1 class='card-title'>").text(allevents[i].title);
-    if (allevents[i].image == null){ 
-    var artistImage = $("<p>").text("no image avaliable");
-    } else {
-      var artistImage = $("<img class='card-img-top'>").attr("src", allevents[i].image.medium.url);
+    $("#cardplace").empty();
+    for ( var i=0; i < allevents.length; i++) {
+      console.log(allevents[i]);
+      var eventcard = $("<div class='card eventful'>")
+      var artistName = $("<h1 class='card-title'>").text(allevents[i].title);
+      if (allevents[i].image == null){ 
+      var artistImage = $("<p>").text("no image avaliable");
+      } else {
+        var artistImage = $("<img class='card-img-top'>").attr("src", allevents[i].image.medium.url);
+      }
+      var venue = $("<p>").text(allevents[i].venue_name);
+      var vlocal = $("<p>").text(allevents[i].city_name + " ," + allevents[i].region_name + " ," + allevents[i].country_name);
+      var date = $("<p>").text(allevents[i].start_time);
+      console.log(allevents[i].url);
+      var link = $("<a>").attr("href", allevents[i].url);
+      $(link).text("Tickets");
+      $(eventcard).append(artistName, artistImage, vlocal, link, venue, date);
+      $("#cardplace").append(eventcard);
     }
-    var venue = $("<p>").text(allevents[i].venue_name);
-    var vlocal = $("<p>").text(allevents[i].city_name + " ," + allevents[i].region_name + " ," + allevents[i].country_name);
-    var date = $("<p>").text(allevents[i].start_time);
-    $(eventcard).append(artistName, artistImage, vlocal, venue, date);
-  }
   });
 }
 function searchBandsInTown(artist) {
@@ -84,7 +86,7 @@ function searchBandsInTown(artist) {
 
     // Printing the entire object to console
     console.log(response);
-
+    $("#cardplace").empty();
     // Constructing HTML containing the artist information
     var artistName = $("<h1 class='card-title'>").text(response.name);
     var artistURL = $("<a>").attr("href", response.url).append(artistName);
@@ -92,8 +94,9 @@ function searchBandsInTown(artist) {
     var goToArtist = $("<a>").attr("href", response.url).text("See Tour Dates");
 
     // Empty the contents of the artist-div, append the new artist content
-    $("#artist-div").empty();
-    $("#artist-div").append(artistURL, artistImage, goToArtist);
+    var bandcard = $("<div class='card' id='artist-div'>")
+    $(bandcard).append(artistURL, artistImage, goToArtist);
+    $("#cardplace").append(bandcard);
   });
 }
 $(document).ready(function () {
@@ -112,9 +115,9 @@ $(document).ready(function () {
   $("#select-location").on("click", function (event) {
     // Preventing the button from trying to submit the form
     event.preventDefault();
-    logo.animate({ height: "400px" });
+    logo.animate({ height: "350px" });
     // Storing the artist name
-    keyword = $("#keyword").val().trim();
+    var keyword = $("#keyword").val().trim();
     where = $("#where").val().trim();
     evdbapi(keyword, where);
   });
