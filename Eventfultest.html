@@ -67,7 +67,6 @@
 	text-align:left;
 	font-size:14px;
 	}
-.ui-autocomplete-loading { background: white url("/images/ui-anim_basic_16x16.gif") right center no-repeat; }
 </style>
  
 <script type="text/javascript">
@@ -113,6 +112,7 @@ jQuery(function ()
         jQuery.getJSON(
                     "http://gd.geobytes.com/GetCityDetails?callback=?&fqcn="+cityfqcn,
                        function (data) {
+                         console.log(data);
                 jQuery("#geobytesinternet").val(data.geobytesinternet);
                 jQuery("#geobytescountry").val(data.geobytescountry);
                 jQuery("#geobytesregionlocationcode").val(data.geobytesregionlocationcode);
