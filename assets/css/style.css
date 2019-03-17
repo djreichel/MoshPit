@@ -28,6 +28,7 @@ body {
       margin-bottom: 2%;
       background: black;
       color: #20a3d4;
+      font-family: inherit;
    }
 
    .ui.inverted.button.blue.button:hover{
