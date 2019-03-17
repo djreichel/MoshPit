@@ -11,30 +11,33 @@
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
-
+  
 
 
 </head>
 
 <body>
 
-  <div class="ui container">
-    <div class="middle aligned column">
-        <buttons class="ui inverted button blue button">Artist</buttons>
+  <div class="ui container" style="background: green;">
+    <div class="middle aligned column" id="dembutts" style="background:purple;">
+        <buttons class="ui inverted button blue button" id="artist">Artist</buttons>
         <br>
-        <buttons class="ui inverted button blue button">City</buttons>
+        <buttons class="ui inverted button blue button" id="city">City</buttons>
         <br>
-      <div class="ui input focus">
-        <input type="text" id="where" placeholder="CITY">
-      </div>
+        <br>
+      
       <!--end of first ui input focus for city search-->
     </div>
     <!--end of first second middle aligned column -->
-    <div class="middle align column">
-      <div class="ui input focus">
+    <div class="middle align column" style="background: blue;">
+      <div class="ui input focus" style="background: navajowhite;">
         <input type="text" id="artist-input" placeholder="BAND">
+        <buttons class="ui inverted button blue button" type="submit" id="select-artist">Submit</buttons>
+        <input type="text" id="where" placeholder="CITY">
+        <input type="text" id="keyword" placeholder="GENRE">
+        <buttons class="ui inverted button blue button" type="submit" id="select-location">Submit</buttons>
       </div>
-      <buttons class="ui inverted button blue button" type="submit">Submit</buttons>
+      
       <!--end of ui input focus for band search -->
     </div>
     <!--end of second middle aligned column--> 
@@ -42,11 +45,11 @@
   <!--end of ui container for forms-->
 
 
-  <div class="middle aligned column">
-    <img class="ui centered large image" src="assets/images/moshpit2.png">
+  <div class="middle aligned column" style="background: rgba(218, 165, 32, 0.363);">
+    <img class="ui centered large image" src="assets/images/moshpit2.png" id="logo">
   </div>
   <!--end of image middle aligned column-->
-  <div class="ui vertical hidden divider">
+  <div class="ui vertical hidden divider" id="cardplace">
     <!--anything here goes on right side-->
 
   </div>
