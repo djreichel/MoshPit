@@ -5,6 +5,7 @@ var logo = $("#logo");
 var key = "fb84c3a57177226f589349b05b02b444";
 
 
+
 function lastfm(artist) {
 
   var key = "fb84c3a57177226f589349b05b02b444";
@@ -100,6 +101,7 @@ function searchBandsInTown(artist) {
   });
 }
 $(document).ready(function () {
+  
   $("#artist").on("click", function () {
     $("#dembutts").empty();
     $("#artist-form").css("visibility", "visible");
@@ -109,7 +111,8 @@ $(document).ready(function () {
   $("#city").on("click", function () {
     $("#dembutts").empty();
     $("#where-form").css("visibility", "visible");
-    $("#where").css("visibility", "visible");
+    $("#f_elem_city").css("visibility", "visible");
+    $("#keyword").css("visibility", "visible");
     
   });
   $("#select-location").on("click", function (event) {
@@ -118,7 +121,7 @@ $(document).ready(function () {
     logo.animate({ height: "350px" });
     // Storing the artist name
     var keyword = $("#keyword").val().trim();
-    where = $("#where").val().trim();
+    where = $("#f_elem_city").val().trim();
     evdbapi(keyword, where);
   });
 
@@ -130,7 +133,7 @@ $(document).ready(function () {
     logo.animate({ height: "400px" });
     // Storing the artist name
     inputArtist = $("#artist-input").val().trim();
-    where = $("#where").val().trim();
+    where = $("#f_elem_city").val().trim();
     // Running the searchBandsInTown function(passing in the artist as an argument)
     lastfm(inputArtist);
     // evdbapi(inputArtist, where);
