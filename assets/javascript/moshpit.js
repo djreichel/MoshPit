@@ -89,13 +89,16 @@ function searchBandsInTown(artist) {
     console.log(response);
     $("#cardplace").empty();
     // Constructing HTML containing the artist information
-    var artistName = $("<h1 class='card-title'>").text(response.name);
-    var artistURL = $("<a>").attr("href", response.url).append(artistName);
-    var artistImage = $("<img class='card-img-top'>").attr("src", response.thumb_url);
-    var goToArtist = $("<a>").attr("href", response.url).text("See Tour Dates");
-
+    
+    var artistName = response.name;
+    var artistURL = $("<div class=content'").append($("<a class='header'>").attr("href", response.url).append(artistName));
+    var artistImage = $("<div class='image'").append($("<img>").attr("src", response.thumb_url))
+    var goToArtist = $("<div class='description'").append($("<a>").attr("href", response.url).text("See Tour Dates"));
+    console.log(artistName);
+    console.log(artistURL);
+    console.log(artistImage);
     // Empty the contents of the artist-div, append the new artist content
-    var bandcard = $("<div class='card' id='artist-div'>")
+    var bandcard = $("<div class=' ui card' id='artist-div'>")
     $(bandcard).append(artistURL, artistImage, goToArtist);
     $("#cardplace").append(bandcard);
   });
@@ -104,24 +107,14 @@ $(document).ready(function () {
   
   $("#artist").on("click", function () {
     $("#dembutts").empty();
-<<<<<<< HEAD
     $("#artist-input").css("visibility", "visible");
     $("#select-artist").css("visibility", "visible");
-=======
-    $("#artist-form").css("visibility", "visible");
-    $("#artist-input").css("visibility", "visible");
->>>>>>> API
     
   });
   $("#city").on("click", function () {
     $("#dembutts").empty();
-<<<<<<< HEAD
     $("#where").css("visibility", "visible");
     $("#select-location").css("visibility", "visible");
-=======
-    $("#where-form").css("visibility", "visible");
-    $("#f_elem_city").css("visibility", "visible");
->>>>>>> API
     $("#keyword").css("visibility", "visible");
     
   });
@@ -131,11 +124,7 @@ $(document).ready(function () {
     logo.animate({ height: "350px" });
     // Storing the artist name
     var keyword = $("#keyword").val().trim();
-<<<<<<< HEAD
     where = $("#where").val().trim();
-=======
-    where = $("#f_elem_city").val().trim();
->>>>>>> API
     evdbapi(keyword, where);
   });
 
@@ -144,24 +133,10 @@ $(document).ready(function () {
   $("#select-artist").on("click", function (event) {
     // Preventing the button from trying to submit the form
     event.preventDefault();
-<<<<<<< HEAD
     logo.animate({ 
       left: "-=400px",
       width: "200px"
   }, "slow");
 
-    // Storing the artist name
-    inputArtist = $("#artist-input").val().trim();
-    where = $("#where").val().trim();
-=======
-    logo.animate({ height: "400px" });
-    // Storing the artist name
-    inputArtist = $("#artist-input").val().trim();
-    where = $("#f_elem_city").val().trim();
->>>>>>> API
-    // Running the searchBandsInTown function(passing in the artist as an argument)
-    lastfm(inputArtist);
-    // evdbapi(inputArtist, where);
-    searchBandsInTown(inputArtist);
   });
 });
