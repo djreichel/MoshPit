@@ -5,6 +5,7 @@ body {
    height: 100%;
    z-index: 1;
    position: inherit;
+   font-family: 'Permanent Marker', cursive;
 }
 .ui.input>input {
    font-family: 'Permanent Marker', cursive;
@@ -16,4 +17,20 @@ body {
   }
  .ui.input.focus {
       padding-bottom: 2%;
+   }
+
+   .ui.inverted.segment > .ui.inverted.button.blue.button {
+      font-family: 'Permanent Marker', cursive;
+      
+   }
+
+   .ui.inverted.button.blue.button {
+      margin-bottom: 2%;
+      background: black;
+      color: #20a3d4;
+   }
+
+   .ui.inverted.button.blue.button:hover{
+      background: #20a3d4;
+      color: white;
    }
