@@ -1,0 +1,63 @@
+body            {
+    background: url(./images/MoshPit_pic_960x600.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#artist-div {
+    float: right;
+    background-color: darkgray;
+    border-radius: 25px;
+    width: 28rem;
+    text-align: center;
+}
+
+.eventful {
+    width: 15rem;
+    float: right;
+    margin: 25px;
+    background-color: darkgrey;
+    border-radius: 25px;
+    text-align: center;
+}
+#bio {
+    position: fixed;
+    right: 0;
+    width: 25px;
+}
+#artist-form {
+    visibility: hidden;
+}
+.btn {
+    margin: 20px;
+    width: 100px;
+}
+.row {
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 50px;
+}
+#inputbar {
+    color: white;
+}
+h1 {
+    font-size: 1rem;
+}
+.put {
+    border-radius: 25px;
+    margin: 25px;
+}
+#where-form {
+    visibility: hidden;
+}
+#f_elem_city {
+    visibility: hidden;
+}
+.ui-menu .ui-menu-item a,.ui-menu .ui-menu-item a.ui-state-hover, .ui-menu .ui-menu-item a.ui-state-active {
+	font-weight: normal;
+	margin: -1px;
+	text-align:left;
+	font-size:14px;
+	}
+.ui-autocomplete-loading { background: white url("/images/ui-anim_basic_16x16.gif") right center no-repeat; }
