@@ -7,7 +7,10 @@ body {
    font-family: 'Permanent Marker', cursive;
 }
 .ui.input>input {
+
    font-family: 'Permanent Marker', cursive;
+   margin-right: 2%;
+
   }
 
   .ui.container {
@@ -16,6 +19,7 @@ body {
   }
  .ui.input.focus {
       padding-bottom: 2%;
+      margin-right: 2%;
    }
 
    .ui.inverted.segment > .ui.inverted.button.blue.button {
@@ -34,5 +38,26 @@ body {
       background: #20a3d4;
       color: white;
    }
+<<<<<<< HEAD
 
  
+=======
+   #select-location{
+      visibility: visible;
+   }
+   input {
+      margin: 25px;
+   }
+   #select-artist{
+      visibility: visible;
+   }
+   #where {
+      visibility: visible;
+   }
+   #keyword {
+      visibility: visible;
+   }
+   #artist-input {
+      visibility: visible;
+   }
+>>>>>>> 227a77089d50875b6f5f7233ab0d5e4b52b6435f
