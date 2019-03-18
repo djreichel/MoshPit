@@ -6,6 +6,18 @@ body {
    position: inherit;
    font-family: 'Permanent Marker', cursive;
 }
+#biog {
+   height: fit-content;
+   line-height: 1rem;
+   font-size: 25%;
+}
+#dembutts {
+   width: 25%;
+}
+#inputfields {
+   width: 25%;
+   margin-right: 0px;
+}
 .ui.input>input {
 
    font-family: 'Permanent Marker', cursive;
@@ -14,8 +26,9 @@ body {
   }
 
   .ui.container {
-     padding-left: -5.5%;
+     padding-left: -1%;
      padding-top: 3%;
+     margin-left: 0;
   }
  .ui.input.focus {
       padding-bottom: 2%;
@@ -39,20 +52,21 @@ body {
       color: white;
    }
    #select-location{
-      visibility: visible;
+      visibility: hidden;
    }
    input {
       margin: 25px;
+      float: left;
    }
    #select-artist{
-      visibility: visible;
+      visibility: hidden;
    }
    #where {
-      visibility: visible;
+      visibility: hidden;
    }
    #keyword {
-      visibility: visible;
+      visibility: hidden;
    }
    #artist-input {
-      visibility: visible;
+      visibility: hidden;
    }

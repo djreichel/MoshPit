@@ -6,20 +6,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>MOSHPIT</title>
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
-  
-
-
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
 
-  <div class="ui container" style="background: green;">
-    <div class="middle aligned column" id="dembutts" style="background:purple;">
+  <div class="ui container" style="background: rgba(255, 166, 0, 0.575)" >
+      <!-- the below div holds the buttons -->
+    <div class="middle aligned column" id="dembutts" style="background:brown">
         <buttons class="ui inverted button blue button" id="artist">Artist</buttons>
         <br>
         <buttons class="ui inverted button blue button" id="city">City</buttons>
@@ -28,28 +25,35 @@
       
       <!--end of first ui input focus for city search-->
     </div>
-    <!--end of first second middle aligned column -->
-    <div class="middle align column" style="background: blue;">
-      <div class="ui input focus" style="background: navajowhite;">
+    <!--the below div holds input fields -->
+    <div class="middle align column" id="inputfields">
+      <div class="ui input focus" >
         <input type="text" id="artist-input" placeholder="BAND">
         <buttons class="ui inverted button blue button" type="submit" id="select-artist">Submit</buttons>
+      </div>
+      <div class="ui input focus">
         <input type="text" id="where" placeholder="CITY">
+      </div>
+      <div class="ui input focus" >
         <input type="text" id="keyword" placeholder="GENRE">
+        <br>
         <buttons class="ui inverted button blue button" type="submit" id="select-location">Submit</buttons>
       </div>
+
       
       <!--end of ui input focus for band search -->
+    </div>
+    <div class="ui container" >
+      <img class="ui centered large image" src="assets/images/moshpit2.png" id="logo" value="0">
     </div>
     <!--end of second middle aligned column--> 
   </div>
   <!--end of ui container for forms-->
 
 
-  <div class="middle aligned column" style="background: rgba(218, 165, 32, 0.363);">
-    <img class="ui centered large image" src="assets/images/moshpit2.png" id="logo">
-  </div>
+
   <!--end of image middle aligned column-->
-  <div class="ui vertical hidden divider" id="cardplace">
+  <div class="ui vertical hidden divider" id="cardplace" >
     <!--anything here goes on right side-->
 
      
