@@ -6,52 +6,60 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>MOSHPIT</title>
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
-
-
-
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
 
-  <div class="ui container">
-    <div class="middle aligned column">
+      <!-- the below div holds the buttons -->
+      <buttons class="ui inverted button blue button"  href="" id="Home"> HOME </buttons>
+      <!--Add https link to home button-->
+      <br>
+        <buttons class="ui massive inverted button blue button" id="artist">Artist</buttons>
+        <br>
+        <buttons class="ui massive inverted button blue button" id="city">City</buttons>
+       
+      <!--end of first ui input focus for city search-->
+    </div>
+    <!--the below div holds input fields -->
+    <div class="ui container" >
+        <img class="ui centered large image" src="assets/images/moshpit2.png" id="logo" value="0">
+<div class="middle align column" id="inputfields">
+      <div class="ui input focus" >
+        <input type="text" id="artist-input" placeholder="BAND">
+        <buttons class="ui inverted button blue button" type="submit" id="select-artist">Submit</buttons>
+      </div>
       <div class="ui input focus">
         <input type="text" id="where" placeholder="CITY">
       </div>
-      <!--end of first ui input focus for city search-->
-    </div>
-    <!--end of first second middle aligned column -->
-    <div class="middle align column">
-      <div class="ui input focus">
-        <input type="text" id="artist-input" placeholder="BAND">
-      </div>
+      <div class="ui input focus" >
+        <input type="text" id="keyword" placeholder="GENRE">
+        <br>
+        <buttons class="ui inverted button blue button" type="submit" id="select-location">Submit</buttons>
+  </div>
+      
       <!--end of ui input focus for band search -->
-    </div>
+
     <!--end of second middle aligned column--> 
   </div>
   <!--end of ui container for forms-->
 
 
-  <div class="middle aligned column">
-    <img class="ui centered large image" src="assets/images/moshpit2.png">
-    <p>Lorem ipsum dolor sit amet.</p>
-  </div>
+
   <!--end of image middle aligned column-->
-  <div class="ui vertical hidden divider">
+  <div class="ui vertical hidden divider" id="cardplace" >
     <!--anything here goes on right side-->
 
+     
   </div>
   <!--end of ui vertical divider-->
+  
 
-  <div class="middle align column">
 
-  </div>
-  <!--end of middle align column -->
+
 
 
 

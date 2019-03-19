@@ -1,19 +1,82 @@
-
 body { 
    background: url("../images/background.jpg");
    background-size: cover;
    height: 100%;
    z-index: 1;
-   position: inherit;
+   position: fixed;
+   font-family: 'Permanent Marker', cursive;
+   background-repeat: no-repeat;
+   z-index: 3;
+   top: 0px;
+   left: 0px;
+}
+.card {
+   line-height: 1rem;
+}
+#biog {
+   height: fit-content;
+   line-height: 1rem;
+   font-size: 25%;
+}
+#inputfields {
+   width: 25%;
+   margin-right: 0px;
 }
 .ui.input>input {
+
    font-family: 'Permanent Marker', cursive;
+   margin-right: 2%;
+
   }
 
   .ui.container {
-     padding-left: -5.5%;
+     padding-left: -1%;
      padding-top: 3%;
+     margin-left: 0;
   }
  .ui.input.focus {
       padding-bottom: 2%;
+      margin-right: 2%;
    }
+
+   .ui.inverted.segment > .ui.inverted.button.blue.button {
+      font-family: inherit;
+      
+   }
+
+   .ui.inverted.button.blue.button {
+      margin-bottom: 2%;
+      margin-top: 2%;
+      Margin-left:2%;
+      background: black;
+      color: #20a3d4;
+      font-family: inherit;
+   }
+
+   .ui.inverted.button.blue.button:hover{
+      background: #20a3d4;
+      color: white;
+   }
+   #select-location{
+      visibility: hidden;
+   }
+   input {
+      margin: 25px;
+   }
+   #select-artist{
+      visibility: hidden;
+   }
+   #where {
+      visibility: hidden;
+   }
+   #keyword {
+      visibility: hidden;
+   }
+   #artist-input {
+      visibility: hidden;
+   }
+ .ui.centered.large.image {
+    position: fixed;
+    margin-top: -25%;
+    margin-left: 33%;
+ }
