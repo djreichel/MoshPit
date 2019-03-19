@@ -100,7 +100,7 @@ function evdbapi(inputArtist, where) {
         // if there is an image...
       } else {
         // create an image element with the source of the url from the response
-        var artistImage = $("<img class='image'>").attr("src", allevents[i].image.medium.url);
+        var artistImage = $("<img class='image' style='margin: auto'>").attr("src", allevents[i].image.medium.url);
       }
       // create paragraph elements with the text of the venue, city, region, and date of the event
       var venue = $("<p>").text(allevents[i].venue_name);
@@ -138,49 +138,59 @@ function searchBandsInTown(inputArtist) {
 ////////// Response Manipulation //////////
     // log the response
     console.log(response);
-     // empty the div of any previously built band cards
+    // empty the div of any previously built band cards
     $("#cardplace").empty();
+    //create card to append data to
+    var bandcard = $("<div class=' ui card' id='artist-div'>");
+    //create variable to hold artist name from response
     var artistName = response.name;
+    var header = $("<h1>").text(artistName);
+    //create empty div for bio
     var emptybio = $("<div id='biog'>");
+    //create content div and assign to a variable
     var cardcontent = $("<div class='content'>");
-    var artistlink = $("<a class='header'>");
-    $(artistlink).attr("href", response.url);
-    $(artistlink).text(artistName);
-    $(cardcontent).append(artistlink);
-    var artistImage = $("<div class='image'>").append($("<img>").attr("src", response.thumb_url))
+    // append artist link anchor tag to content div
+    $(cardcontent).append(header);
+    //create a div with an image element with source being artist thumbnail from the response
+    var artistImage = $("<div class='image'>").append($("<img>").attr("src", response.thumb_url));
+    //create a description div and a span
     var description = $("<div class='description'>");
     var tdspan = $("<span>");
+    // assign the span an anchor tag with url of bands in town artist
     $(tdspan).append($("<a>").attr("href", response.url).text("See Tour Dates"));
+    //append span to description
     $(description).append(tdspan);
+    //append description to card content
     $(cardcontent).append(description);
-    
-    console.log(artistName);
-    console.log(cardcontent);
-    console.log(artistImage);
-
-    var bandcard = $("<div class=' ui card' id='artist-div'>");
+    //append data to band card
     $(bandcard).append(artistImage, emptybio, cardcontent);
+    //append data to DOM
     $("#cardplace").append(bandcard);
   });
 }
 $(document).ready(function () {
-  
+  // when artist button is clicked...
   $("#artist").on("click", function () {
+    //hide the buttons
     $("#dembutts").css("visibility", "hidden");
+    //reveal input field and submit button
     $("#artist-input").css("visibility", "visible");
     $("#select-artist").css("visibility", "visible");
-    
   });
+  //when city button is clicked...
   $("#city").on("click", function () {
+    //hide the buttons
     $("#dembutts").css("visibility", "hidden");
+    //reveal input field and submit button
     $("#where").css("visibility", "visible");
     $("#select-location").css("visibility", "visible");
-    $("#keyword").css("visibility", "visible");
-    
+    $("#keyword").css("visibility", "visible");   
   });
+  //when submitting input for city and genre...
   $("#select-location").on("click", function (event) {
     // Preventing the button from trying to submit the form
     event.preventDefault();
+    //animate logo if hasn't already been animated
     if (logovalue < 1) {
       logo.animate({ 
         top: "-=10px",
@@ -188,21 +198,19 @@ $(document).ready(function () {
         width: "300px"
     }, "slow");
   }
+    //add one to the logo value
     logovalue = logovalue + 1;
-    // Storing the inputArtist name
+    // assigning keyword and location inputs to variables
     var keyword = $("#keyword").val().trim();
     where = $("#where").val().trim();
-    
+    // make api call using user input
     evdbapi(keyword, where);
   });
-
-
-  // Event handler for user clicking the select-inputArtist button
+  //when submitting input for an artist...
   $("#select-artist").on("click", function (event) {
-
-    console.log(logovalue);
     // Preventing the button from trying to submit the form
     event.preventDefault();
+    //animate logo if hasn't already been animated
     if (logovalue < 1) {
     logo.animate({ 
       top: "-=10px",
@@ -210,10 +218,12 @@ $(document).ready(function () {
       width: "300px"
   }, "slow");
 }
+  //add one to the logo value
   logovalue = logovalue + 1;
+  //grab user input and assign to variable
   var inputArtist = $("#artist-input").val().trim();
+  //make two api calls using artist input
   searchBandsInTown(inputArtist);
    lastfm(inputArtist);
-
   });
 });

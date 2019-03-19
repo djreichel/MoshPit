@@ -10,6 +10,9 @@ body {
    top: 0px;
    left: 0px;
 }
+.card {
+   line-height: 1rem;
+}
 #biog {
    height: fit-content;
    line-height: 1rem;
