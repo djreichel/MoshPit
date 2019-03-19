@@ -100,7 +100,7 @@ function evdbapi(inputArtist, where) {
         // if there is an image...
       } else {
         // create an image element with the source of the url from the response
-        var artistImage = $("<img class='image'>").attr("src", allevents[i].image.medium.url);
+        var artistImage = $("<img class='image' style='margin: auto'>").attr("src", allevents[i].image.medium.url);
       }
       // create paragraph elements with the text of the venue, city, region, and date of the event
       var venue = $("<p>").text(allevents[i].venue_name);

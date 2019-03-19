@@ -6,6 +6,9 @@ body {
    position: inherit;
    font-family: 'Permanent Marker', cursive;
 }
+.card {
+   line-height: 1rem;
+}
 #biog {
    height: fit-content;
    line-height: 1rem;
