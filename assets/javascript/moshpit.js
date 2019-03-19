@@ -183,9 +183,9 @@ $(document).ready(function () {
     event.preventDefault();
     if (logovalue < 1) {
       logo.animate({ 
-        top: "-=300px",
-        right: "-=600px",
-        width: "150px"
+        top: "-=10px",
+        right: "-=400px",
+        width: "300px"
     }, "slow");
   }
     logovalue = logovalue + 1;
@@ -205,9 +205,9 @@ $(document).ready(function () {
     event.preventDefault();
     if (logovalue < 1) {
     logo.animate({ 
-      top: "-=300px",
-      right: "-=600px",
-      width: "150px"
+      top: "-=10px",
+      right: "-=400px",
+      width: "300px"
   }, "slow");
 }
   logovalue = logovalue + 1;
