@@ -10,13 +10,37 @@ body {
    top: 0px;
    left: 0px;
 }
+#cardplace {
+   overflow: scroll;
+   position: fixed;
+   top: 0;
+   right: 0;
+   width: 75%;
+   height: 640px;
+   float: left;
+}
+.button {
+   width: 8em;
+}
 .card {
    line-height: 1rem;
+   margin: 25px;
+   float: left;
+}
+.ui.card {
+   margin: 25px;
+   text-align: center;
+   margin-bottom: 0;
+}
+.ui.card:first-child {
+   margin: 25px;
+   text-align: center;
+   margin-bottom: 0;
 }
 #biog {
    height: fit-content;
    line-height: 1rem;
-   font-size: 25%;
+   font-size: 75%;
 }
 #inputfields {
    width: 25%;
@@ -28,11 +52,15 @@ body {
    margin-right: 2%;
 
   }
+#container {
+   max-width: 25%;
+}
 
   .ui.container {
      padding-left: -1%;
      padding-top: 3%;
      margin-left: 0;
+     max-width: 100px;
   }
  .ui.input.focus {
       padding-bottom: 2%;
@@ -61,10 +89,17 @@ body {
       visibility: hidden;
    }
    input {
-      margin: 25px;
+      margin-top: 25px;
+      margin-bottom: 25px;
    }
    #select-artist{
       visibility: hidden;
+   }
+   #artist-div {
+      width: 25rem;
+   }
+   #innputfields {
+      margin: 0;
    }
    #where {
       visibility: hidden;
