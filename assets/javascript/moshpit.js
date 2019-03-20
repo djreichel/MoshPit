@@ -13,7 +13,7 @@ var logovalue = $("#logo").attr("value");
 ////////// Function for calling LastFM API //////////
 function lastfm(artist) {
   var key = "fb84c3a57177226f589349b05b02b444";
-  var queryURL = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artist + "&api_key=" + key + "&format=json";
+  var queryURL = "https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artist + "&api_key=" + key + "&format=json";
   ////////// AJAX API call //////////
   $.ajax({
     url: queryURL,
@@ -26,7 +26,7 @@ function lastfm(artist) {
     // API call to get artist bio using the specific mbid
     console.log("music brainz:" + response.artist.mbid);
     var artid = response.artist.mbid;
-    var queryURLtwo = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&mbid=" + artid + "&api_key=" + key + "&format=json";
+    var queryURLtwo = "https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&mbid=" + artid + "&api_key=" + key + "&format=json";
     $.ajax({
 ////////// 2nd AJAX API call //////////
       url: queryURLtwo,
