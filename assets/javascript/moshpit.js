@@ -66,7 +66,7 @@ function evdbapi(inputArtist, where) {
     where: where,
     "date": "Next week",
     "include": "tags,categories",
-    page_size: 5,
+    page_size: 10,
     sort_order: "popularity",
   };
   EVDB.API.call("/events/search", oArgs, function (oData) {
@@ -84,7 +84,7 @@ function evdbapi(inputArtist, where) {
       // log the current index event you are at
       console.log(allevents[i]);
       // create a Semantic UI card and assign it to the ebandcard variable
-      var ebandcard = $("<div class=' ui card' id='artist-div'>");
+      var ebandcard = $("<div class=' ui card' >");
       // create a content div to append information to and assign it to eventcardcontent
       var eventcardcontent = $("<div class='content eventful'>");
       // create a header div to append information to and assign it artistName
@@ -101,6 +101,7 @@ function evdbapi(inputArtist, where) {
       } else {
         // create an image element with the source of the url from the response
         var artistImage = $("<img class='image' style='margin: auto'>").attr("src", allevents[i].image.medium.url);
+        $(artistImage).attr("alt", "no image avaliable");
       }
       // create paragraph elements with the text of the venue, city, region, and date of the event
       var venue = $("<p>").text(allevents[i].venue_name);
@@ -166,13 +167,14 @@ function searchBandsInTown(inputArtist) {
     $(bandcard).append(artistImage, emptybio, cardcontent);
     //append data to DOM
     $("#cardplace").append(bandcard);
+
   });
 }
 $(document).ready(function () {
   // when artist button is clicked...
   $("#artist").on("click", function () {
     //hide the buttons
-    $("#dembutts").css("visibility", "hidden");
+    $("#dembuttons").css("visibility", "hidden");
     //reveal input field and submit button
     $("#artist-input").css("visibility", "visible");
     $("#select-artist").css("visibility", "visible");
@@ -180,7 +182,7 @@ $(document).ready(function () {
   //when city button is clicked...
   $("#city").on("click", function () {
     //hide the buttons
-    $("#dembutts").css("visibility", "hidden");
+    $("#dembuttons").css("visibility", "hidden");
     //reveal input field and submit button
     $("#where").css("visibility", "visible");
     $("#select-location").css("visibility", "visible");
@@ -193,9 +195,9 @@ $(document).ready(function () {
     //animate logo if hasn't already been animated
     if (logovalue < 1) {
       logo.animate({ 
-        top: "-=10px",
-        right: "-=400px",
-        width: "300px"
+        bottom: "-=100px",
+        left: "-=400px",
+        width: "200px"
     }, "slow");
   }
     //add one to the logo value
@@ -213,9 +215,9 @@ $(document).ready(function () {
     //animate logo if hasn't already been animated
     if (logovalue < 1) {
     logo.animate({ 
-      top: "-=10px",
-      right: "-=400px",
-      width: "300px"
+      bottom: "-=100px",
+      left: "-=400px",
+      width: "200px"
   }, "slow");
 }
   //add one to the logo value
@@ -224,6 +226,17 @@ $(document).ready(function () {
   var inputArtist = $("#artist-input").val().trim();
   //make two api calls using artist input
   searchBandsInTown(inputArtist);
-   lastfm(inputArtist);
+  lastfm(inputArtist);
   });
+  // when the home button is clicked
+  $("#home").on("click", function(){
+    // hide any visible input fields
+    $("#select-artist").css("visibility", "hidden");
+    $("#select-location").css("visibility", "hidden");
+    $("#artist-input").css("visibility", "hidden");
+    $("#where").css("visibility", "hidden");
+    $("#keyword").css("visibility", "hidden");
+    // show off dem buttons
+    $("#dembuttons").css("visibility", "visible");
+  })
 });

@@ -6,64 +6,65 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>MOSHPIT</title>
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
   <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
-
       <!-- the below div holds the buttons -->
-      <buttons class="ui inverted button blue button"  href="" id="Home"> HOME </buttons>
-      <!--Add https link to home button-->
-      <br>
+  <div class="left align column" id="container">
+    <!-- Brings back Artist or City options once one has been selected -->
+    <buttons class="ui inverted button blue button" id="home"> HOME </buttons>
+
+      <!-- container holding buttons -->
+      <div class="ui container" id="dembuttons">
+
+        <!-- button for searching for an artist -->
         <buttons class="ui massive inverted button blue button" id="artist">Artist</buttons>
+        
         <br>
+
+        <!-- button for searching based on city -->
         <buttons class="ui massive inverted button blue button" id="city">City</buttons>
-       
-      <!--end of first ui input focus for city search-->
-    </div>
+
+      </div>
+
     <!--the below div holds input fields -->
-    <div class="ui container" >
-        <img class="ui centered large image" src="assets/images/moshpit2.png" id="logo" value="0">
-<div class="middle align column" id="inputfields">
-      <div class="ui input focus" >
-        <input type="text" id="artist-input" placeholder="BAND">
-        <buttons class="ui inverted button blue button" type="submit" id="select-artist">Submit</buttons>
-      </div>
+    <div class="container" id="inputfields">
+      
       <div class="ui input focus">
-        <input type="text" id="where" placeholder="CITY">
+        <!-- artist input field and submit button  -->
+        <input type="text" id="artist-input" placeholder="ARTIST" required>
+        <buttons class="ui inverted button blue button" type="submit" id="select-artist" required>Submit</buttons>
+
       </div>
-      <div class="ui input focus" >
+      
+      <!-- semantic input container -->
+      <div class="ui input focus">
+        <!-- city input field  -->
+        <input type="text" id="where" placeholder="CITY" required>
+      </div>
+      <!-- semantic input container -->
+      <div class="ui input focus">
+        <!-- genre input field and submit button -->
         <input type="text" id="keyword" placeholder="GENRE">
         <br>
         <buttons class="ui inverted button blue button" type="submit" id="select-location">Submit</buttons>
+      </div>
+    </div>
   </div>
-      
-      <!--end of ui input focus for band search -->
 
-    <!--end of second middle aligned column--> 
+  <div class="container" id="cardplace">
+    <!--anything created here goes on right side-->
+
+
   </div>
-  <!--end of ui container for forms-->
-
-
-
-  <!--end of image middle aligned column-->
-  <div class="ui vertical hidden divider" id="cardplace" >
-    <!--anything here goes on right side-->
-
-     
-  </div>
-  <!--end of ui vertical divider-->
+  <!-- logo image -->
+  <img class="ui centered large image" src="assets/images/moshpit2.png" id="logo" value="0">
   
-
-
-
-
-
-
-
   <script href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="http://api.eventful.com/js/api"></script>
